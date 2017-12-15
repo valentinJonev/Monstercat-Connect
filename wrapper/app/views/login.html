@@ -1,0 +1,24 @@
+<div class="text-center" style="padding:20px 0" ng-controller="loginController as login">
+	<div class="logo">
+		<img width="80%" ng-src="{{login.scope.logo}}" ng-show="{{login.scope.showLogo}}">
+		{{login.scope.pageName}}
+	</div>
+	<div class="login-form-1">
+		<form id="login-form" class="text-left">
+			<div class="login-form-main-message" ng-bind="login.scope.errorMessage"></div>
+			<div class="main-login-form">
+				<div class="login-group">
+					<div class="form-group">
+						<input type="text" class="form-control" id="username" name="username" ng-model="login.scope.username" placeholder="username">
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control login-password" id="password" name="password" ng-model="login.scope.password" placeholder="password">
+						<ons-icon icon="fa-eye" class="icon"></ons-icon>
+					</div>
+				</div>
+				<button type="submit" class="login-button" ng-click="login.Login()"><i class="fa fa-chevron-right"></i></button>
+			</div>
+		</form>
+	</div>
+	<ons-button class="back" ng-click="login.back()">Back</ons-button>
+</div>

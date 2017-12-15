@@ -1,0 +1,43 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.alphabrain.wrapper"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.alphabrain.wrapper"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.alphabrain.wrapper"
+        },
+        "cordova-plugin-android-permissions": {
+            "PACKAGE_NAME": "com.alphabrain.wrapper"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.alphabrain.wrapper"
+        },
+        "cordova-plugin-app-version": {
+            "PACKAGE_NAME": "com.alphabrain.wrapper"
+        },
+        "com.borismus.webintent": {
+            "PACKAGE_NAME": "com.alphabrain.wrapper"
+        },
+        "cordova-plugin-file-opener2": {
+            "PACKAGE_NAME": "com.alphabrain.wrapper"
+        },
+        "cordova-plugin-httpd": {
+            "PACKAGE_NAME": "com.alphabrain.wrapper"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.alphabrain.wrapper"
+        }
+    }
+}

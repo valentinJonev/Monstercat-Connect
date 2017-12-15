@@ -1,0 +1,10 @@
+{
+  "name": "com.alphabrain.wrapper",
+  "dependencies": {
+    "angular-ui-bootstrap": "registry:dt/angular-ui-bootstrap#0.13.3+20170313194846"
+  },
+  "globalDependencies": {
+    "jquery": "registry:dt/jquery#1.10.0+20170310222111",
+    "mustache": "registry:dt/mustache#0.8.2+20160510002910"
+  }
+}

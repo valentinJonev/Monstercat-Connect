@@ -1,0 +1,42 @@
+{
+  "_from": "git+https://github.com/niklilland/cordova-webintent.git",
+  "_id": "cordova-webintent@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-dlSC76vwnqJllkMovD384soFY8w=",
+  "_location": "/cordova-webintent",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/niklilland/cordova-webintent.git",
+    "rawSpec": "https://github.com/niklilland/cordova-webintent.git",
+    "saveSpec": "git+https://github.com/niklilland/cordova-webintent.git",
+    "fetchSpec": "https://github.com/niklilland/cordova-webintent.git",
+    "gitCommittish": "master"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/niklilland/cordova-webintent.git#79100000d1ac95cd80aca5a57f6c2aa04f127b47",
+  "_spec": "https://github.com/niklilland/cordova-webintent.git",
+  "_where": "/home/valentin/Projects/mobile-wrapper/wrapper/node_modules",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/niklilland/cordova-webintent/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "By Boris Smus",
+  "homepage": "https://github.com/niklilland/cordova-webintent#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "name": "cordova-webintent",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niklilland/cordova-webintent.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}
