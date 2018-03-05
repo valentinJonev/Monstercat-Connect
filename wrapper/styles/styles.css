@@ -6,6 +6,9 @@ a {
   color: #aaaaaa;
   transition: all ease-in-out 200ms;
 }
+.wrapper{
+    height: 90% !important;
+}
 a:hover {
   color: #333333;
   text-decoration: none;
@@ -158,6 +161,12 @@ label.form-invalid:after {
   -ms-scroll-snap-type: mandatory;
 }
 
+.progress-bar-holder-top{
+  background-color: #65adff;
+  width: 100%;
+  height: 4px;
+}
+
 .advanced-button{
   margin-top: 30px;
 }
@@ -177,4 +186,247 @@ label.form-invalid:after {
 .login-password{
     display: inline-block !important;
     width: auto !important;
+}
+
+.audio-player.minimized{
+  background: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+}
+
+.audio-player.maximized img{
+  display: block;
+  margin: 10% auto;
+}
+
+.audio-player.maximized .progress-bar-holder{
+  background-color: #65adff;
+  display: inline-block;
+  width: 90%;
+  margin-bottom: 5%;
+  margin-left: 5%;
+}
+
+.audio-player.maximized .info{
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.audio-player.maximized .info label{
+  display: block;
+}
+
+.audio-player-toggle{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.releases, .artists{
+  padding-top: 2%;
+  max-height: 80%;
+  overflow: scroll;
+}
+
+.release, .artist{
+  display: inline-block;
+  width: 33.3%;
+  padding: 1%;
+}
+
+.release img, .artist img{
+  width: 100%;
+  height: auto;   
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 5%;
+}
+
+.release label, .artist label{
+  display: inline-block;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.albumCover{
+  display: block;
+  margin: auto;
+  margin-top: 3%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.albumName, .releaseDate{
+  text-align: center;
+  margin-top: 5%;
+}
+
+.songs{
+  margin-top: 5%;
+}
+
+.song{
+  padding-left: 5%;
+  width: 100%;
+  display: table;
+}
+
+.song i{
+  font-size: 200%;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.song p{
+  margin-left: 2%;
+  width: 80%;
+  text-align: center;
+  padding: 2%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.buttons{
+  margin-top: 5%;
+  margin: auto;
+  text-align: center;
+}
+
+.buttons .btn{
+  width: 30%;
+}
+
+.buttons .download{
+  margin-left: 10%;
+}
+
+.album, .artistInfo{
+  height: 80%;
+  overflow: scroll;
+}
+
+.artistInfo .artistProfilePicture{
+  width:100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.artistInfo .social-button{
+  display: inline-block;
+  margin: 4%;
+}
+
+.artistInfo .social-button i{
+  font-size: 150%;
+  text-shadow: 1px 1px 1px #ccc;
+}
+
+.artistInfo .releases{
+  overflow: initial !important;
+}
+
+.loading-more{
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+}
+
+.home-img{
+  display: block;
+  margin: 0 auto;
+  width: 40%;
+  margin-bottom: 2%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.home-section{
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.home-more{
+  text-align: right;
+  margin-right: 5%;
+}
+
+.latest-release{
+  border-bottom: 1px solid grey;
+  margin-top: 2%;
+}
+
+.latest-podcast{
+  margin-top: 2%;
+}
+
+.progress-bar{
+  width: 0%;
+  border-radius: 0px;
+  height: 4px;
+}
+
+#equalizer{
+  width: 100%;
+  height: 10%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.player-controlls{
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  text-shadow: 2px 2px 9px;
+  z-index: 1;
+}
+
+.player-controlls p{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.player-controlls i{
+  font-size: 200%;
+  margin: 5%;
+}
+
+.toolbar-text{
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  left: 10%;
+}
+
+.toolbar-text p{
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  left: 0;
+}
+
+.latest{
+  text-align: center;
+  margin: 3%;
+  border-bottom: 1px solid black;
+}
+
+.featured{
+  margin: 3%;
+}
+
+.latest label{
+  margin: 1%;
+  display: block;
+}
+
+.latest img{
+  margin-bottom: 5%;
 }

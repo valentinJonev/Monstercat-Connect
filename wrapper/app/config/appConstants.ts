@@ -6,7 +6,7 @@ module MobileWrapper.Constants {
         }
 
         private configure(){
-            this.API_URL = 'https://connect.monstercat.com/api';
+            this.API_URL = 'https://connect.monstercat.com';
             this.MEDIA_URL = 'https://s3.amazonaws.com';
         }
 
@@ -15,12 +15,13 @@ module MobileWrapper.Constants {
 
         private LOGIN_SERVICE = '/signin';
         private LOGOUT_SERVICE = '/signout'
-        private ALBUM_SERVICE = '/catalog/release/';
-        private TRACK_SERVICE = '/catalog/track/';
-        private PLAYLIST_SERVICE = '/playlist';
-        private ARTIST_SERVICE = '/catalog/artist';
+        private ALBUM_SERVICE = '/api/catalog/release/';
+        private BROWSE_SERVICE = '/api/catalog/browse/'
+        private TRACK_SERVICE = '/api/catalog/track/';
+        private PLAYLIST_SERVICE = '/api/playlist';
+        private ARTIST_SERVICE = '/api/catalog/artist/';
         private MEDIA_SERVICE = '/data.monstercat.com/blobs/';
-        private SESSION_SERVICE = '/self/session/';
+        private SESSION_SERVICE = '/api/self/session/';
         
         /*private LOGOUT_SERVICE = '/imp/login/logout';
         private CACHE_SERVICE = '/imp/template/get/';
@@ -40,6 +41,10 @@ module MobileWrapper.Constants {
 
         public GetAlbumService(albumID: string = ''){
             return this.API_URL + this.ALBUM_SERVICE + albumID;
+        }
+
+        public GetBrowseService(){
+            return this.API_URL + this.BROWSE_SERVICE;
         }
 
         public GetAlbumTracksService(albumID: string){
@@ -103,13 +108,13 @@ module MobileWrapper.Constants {
     }
 
     export class TemplateConstants{
-        public LOGIN_TEMPLATE = 'login';
-        public MENU_TEMPLATE = 'menu';
-        public HOME_TEMPLATE = 'test';
-        public ERROR_TEMPLATE = 'error';
-        public INFO_TEMPLATE = 'info';
-        public DASHBOARD_TEMPLATE = 'widget';
-        public SETTINGS_TEMPLATE = 'settings'
+        public LOGIN_TEMPLATE = 'login.html';
+        public MENU_TEMPLATE = 'menu.html';
+        public HOME_TEMPLATE = 'test.html';
+        public ERROR_TEMPLATE = 'error.html';
+        public INFO_TEMPLATE = 'info.html';
+        public DASHBOARD_TEMPLATE = 'widget.html';
+        public SETTINGS_TEMPLATE = 'settings.html';
     }
 
     export class CacheConstants{

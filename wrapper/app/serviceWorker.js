@@ -1,4 +1,4 @@
-var staticCacheName = 'monstercat-static-v2';
+var staticCacheName = 'monstercat-static-v7';
 var contentImgsCache = 'monstercat-content-imgs';
 var allCaches = [
   staticCacheName,
@@ -15,7 +15,13 @@ self.addEventListener('install', function(event) {
         'views/artists.html',
         'views/music.html',
         'views/home.html',
-        'views/settings.html'
+        'views/settings.html',
+        'views/login.html',
+        'views/player-minimized.html',
+        'views/player-maximized.html',
+        'views/album.html',
+        'views/artist.html',
+        'views/featured.html'
       ]);
     })
   );
@@ -59,13 +65,27 @@ self.addEventListener('fetch', function(event) {
     );
     return;
   } else{
-      event.respondWith(serveOutsideRequests(event));
-    return;
+    if(requestUrl.origin == 'https://assets.monstercat.com'){
+      event.respondWith(serveOutsideRequests(event))
+    }
+    else{
+      event.respondWith(
+        fetch(event.request)
+        .catch(error => {
+          if(event.request.headers.get('accept').includes('text/html')){
+            return caches.match('views/offline.html')
+          }
+          else{
+            return error;
+          }
+        }))
+  return;
+    }
   }
 });
 
 function serveTemplate(request){
-  var storageUrl = request.url.replace(/http:\/\/(\w+\.?)+(:\w+)\/views\//, 'views/').replace('?', '.html');
+  var storageUrl = request.url.replace(/http:\/\/(\w+\.?)+(:\w+)\/views\//, 'views/').replace("?","");
 
   return caches.open(staticCacheName).then(function(cache) {
     return cache.match(storageUrl).catch(function() {
@@ -123,6 +143,7 @@ async function serveOutsideRequests(event){
     });
   });
 }
+
 
 self.addEventListener('message', function(event) {
   if (event.data.action === 'skipWaiting') {

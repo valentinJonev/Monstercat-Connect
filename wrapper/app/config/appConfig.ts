@@ -29,13 +29,7 @@ module MobileWrapper.Config{
             this.notificationService = Notification;
             this.http = $http;
 
-            this.authService.IsLoggedIn()
-            .then(() => {
-                this.commonService.ReloadMenu();
-                this.commonService.NavigateToPage('home', this.state, this.rootScope);
-            }, () => {
-                this.commonService.NavigateToPage('loading', this.state, this.rootScope);
-            })
+            this.commonService.ReloadMenu();
 
             this.setHandlers();
 
@@ -85,7 +79,8 @@ module MobileWrapper.Config{
         }
 
         pingServer = () => {
-            fetch(this.apiConstants.GetLoginService(), { headers: {
+            fetch(this.apiConstants.API_URL, {
+                headers: {
                     Accept: '*/*'
                 }})
             .then(() => {

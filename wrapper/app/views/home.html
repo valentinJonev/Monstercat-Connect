@@ -1,1 +1,12 @@
-home
+<div class="home" ng-controller="homeController as home">
+    <div class="latest-release">
+        <p class="home-section">Albums</p>
+        <img class="home-img" ng-click="home.ViewAlbum(home.scope.release.Id)" src="{{home.scope.release.CoverUrl}}?image_width=256">
+        <div class="home-more" ng-click="home.ShowMore('Albums')">Show more <i class="ion-arrow-right-c"></i></div>
+    </div>
+    <div class="latest-podcast">
+        <p class="home-section">Podcasts</p>
+        <img class="home-img" ng-click="home.ViewAlbum(home.scope.podcast.Id)" src="{{home.scope.podcast.CoverUrl}}?image_width=256">
+        <div class="home-more" ng-click="home.ShowMore('Podcasts')">Show more <i class="ion-arrow-right-c"></i></div>
+    </div>
+</div>

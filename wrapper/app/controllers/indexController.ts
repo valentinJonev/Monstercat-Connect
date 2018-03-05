@@ -4,6 +4,9 @@ module MobileWrapper.Controllers {
         menu: string | null;
         mySplitter: any;
         appName: string;
+        state: string,
+        songId: string,
+        songImage: string
     }
 
     export class IndexController
@@ -13,11 +16,12 @@ module MobileWrapper.Controllers {
         private templateConstants: Constants.TemplateConstants;
         private state: ng.ui.IStateService;
         private commonConstants: Constants.CommonConstants;
+        private monstercatService: Services.MonstercatService;
 
-        static $inject = ['$scope', 'commonService', '$state', 'templateConstants', 'commonConstants'];
+        static $inject = ['$scope', 'commonService', '$state', 'templateConstants', 'commonConstants', 'monstercatService'];
         
         constructor($scope: IndexScope, commonService: Services.CommonService, $state: ng.ui.IStateService, 
-                    templateConstants: Constants.TemplateConstants, commonConstants: Constants.CommonConstants) {
+                    templateConstants: Constants.TemplateConstants, commonConstants: Constants.CommonConstants, monstercatService: Services.MonstercatService) {
             this.scope = $scope;
             this.commonService = commonService;
             this.templateConstants = templateConstants;
@@ -25,6 +29,10 @@ module MobileWrapper.Controllers {
             this.state = $state;
             this.commonService.SetMenuVisibility(false);
             this.scope.appName = this.commonConstants.APP_NAME;
+            this.monstercatService = monstercatService;
+            $('.audio-player.minimized p').on('click', (event) => {
+                mySplitter.right.open();
+            })
         }
 
         public SetPage(page: string, params: any = '') {
@@ -37,6 +45,11 @@ module MobileWrapper.Controllers {
 
         public Logout(){
             this.commonService.Logout(this.state, this.scope);
+        }
+
+        public PlaySong(songId, songCover){
+            this.scope.songId = songId;
+            this.scope.songImage = songCover;
         }
     }
 }

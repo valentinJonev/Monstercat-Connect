@@ -1,0 +1,16 @@
+<div ng-controller="albumController as album" class="album">
+    <img class="albumCover" src="{{album.scope.albumCoverUrl}}?image_width=256" height="170"/>
+    <p class="albumName">{{album.scope.albumArtists}}</p>
+    <p class="releaseDate">Released {{album.scope.releaseDate}}</p>
+    <div class="buttons">
+            <button class="btn btn-primary play" ng-click="album.PlaySong(0)">Play</button>
+            <button class="btn btn-primary download" disabled>Download</button>
+    </div>
+    <div class="songs">
+        <div class="song" ng-repeat="song in album.scope.songs">
+            <i class="icon ion-arrow-right-b" ng-click="album.PlaySong(song.Id)"></i>
+            <p ng-click="album.PlaySong(song.SongIndex)">{{song.Name}} - {{song.Artists}}</p>
+            <i class="icon ion-more"></i>
+        </div>
+    </div>
+</div>

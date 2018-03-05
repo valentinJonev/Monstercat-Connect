@@ -28,8 +28,7 @@ module MobileWrapper.Services{
             }
             fetch(`${url}?${this.jsonToQueryString(params)}`, {
                 method: 'get',
-                headers: headers,
-                credentials: 'include'
+                headers: headers
             }).then((response) => {
                 response.text().then((data) => {
                     try {
@@ -51,6 +50,7 @@ module MobileWrapper.Services{
             var headers = new Headers();
 
             headers.append('Accept', accept);
+            headers.append('Content-Type', 'application/json');
             if(window.localStorage.getItem('oauthToken') != "" && window.localStorage.getItem('oauthToken') != ""){
                 headers.append('Authorization', window.localStorage.getItem('oauthToken'));
             }
@@ -58,8 +58,7 @@ module MobileWrapper.Services{
             fetch(url, {
                 body: JSON.stringify(params),
                 method: 'post',
-                headers: headers,
-                credentials: 'include'
+                headers: headers
             }).then(function(response){
                 response.text().then((data) => {
                     try {

@@ -34,10 +34,18 @@ module MobileWrapper.Services{
 
         public SetMenuVisibility(visibility: boolean){
             if(visibility){
-                $('.menuButton').show();
+                $('.toolbar-button').show();
+                $('.menu-slide').attr('swipeable', 'true');
+                $('audio-player').show();
             } else{
-                $('.menuButton').hide();
+                $('.toolbar-button').hide();
+                $('.menu-slide').removeAttr('swipeable');
+                $('audio-player').hide();
             }
+        }
+
+        public SetToolbarText(text: string){
+            $('.toolbar-text p').text(text);
         }
 
         public NavigateToPage(page: string, $state: ng.ui.IStateService, scope: any, params: any = '') {

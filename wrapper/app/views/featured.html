@@ -1,0 +1,12 @@
+<div class="featured" ng-controller="featuredController as featured">
+    <div class="latest" ng-click="featured.ViewRelease(featured.scope.latest.Id)">
+            <img src="{{featured.scope.latest.CoverUrl}}?image_width=256" height="170"/>
+            <label>{{featured.scope.latest.Name}}</label>
+            <label>{{featured.scope.latest.Artists}}</label>
+    </div>
+    <div class="release" ng-repeat="release in featured.scope.albums" ng-click="featured.ViewRelease(release.Id)">
+        <img src="{{release.CoverUrl}}?image_width=128" />
+        <label>{{release.Name}}</label>
+        <label>{{release.Artists}}</label>
+    </div>
+</div>

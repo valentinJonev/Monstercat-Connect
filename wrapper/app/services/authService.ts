@@ -25,34 +25,20 @@ module MobileWrapper.Services{
         public Login(username: string, password: string) {
             var deferred = this.q.defer();
 
-            /*this.cacheService.GetCache('appVersion')
-            .then((appVersion) => {
-                this.httpService.Post(this.apiConstants.GetLoginService(), {'my_imperia_user': username, 'my_imperia_pass': password, 'appVersion': appVersion})
+            this.httpService.Post(this.apiConstants.GetLoginService(), {'email': username, 'password': password})
                 .then((success) => {
-                    if(success.token != null){
-                        this.cacheService.GetServer('current', true).then((server: any) => {
-                            server.authToken = success.token;
-                            this.cacheService.Save();
-                        })
-                        this.cacheService.SetValue(this.cacheConstants.OAUTH_TOKEN, success.token);
+                    if (success.error) {
+                        deferred.reject(success.message);
+                    }
+                    else {
                         this.cacheService.SetValue(this.cacheConstants.LOGGED_IN, this.commonConstants.TRUE);
                         deferred.resolve('Logged in');
                     }
-                    else{
-                        deferred.reject(success.error);
-                    }
-                }, (error) => {
-                    this.modalService.Error('Error', 'It appears that you are offline or the server is down. Please try again later.', {});
-                    deferred.reject()
-                })
-            })*/
+            }, (error) => {
+                this.modalService.Error('Error', 'It appears that you are offline or the server is down. Please try again later.', {});
+                deferred.reject()
+            })
 
-            //TODO: FIX WHEN CONNECT API IS AVAILABLE
-            this.cacheService.SetValue(this.cacheConstants.OAUTH_TOKEN, '');
-            this.cacheService.SetValue(this.cacheConstants.LOGGED_IN, this.commonConstants.TRUE);
-            deferred.resolve('Logged in');
-
-            
             return deferred.promise;
         }
 

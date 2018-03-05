@@ -11,8 +11,8 @@ module MobileWrapper.Directives {
 
     public link = (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) => {
       scope.$watch(attrs.dynamic, (html) => {
-        element.html(html as string);
-        this.comp(element.contents())(scope);
+          element.html(html as string);
+          this.comp(element.contents())(scope);
       });
     }
 

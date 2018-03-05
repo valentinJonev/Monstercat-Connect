@@ -16,8 +16,8 @@ module MobileWrapper.Services{
         }
 
         public Error(title: string, error: string, errorParams: any){
-            this.templateService.GetTemplate(this.templateConstants.ERROR_TEMPLATE, {title: title, message: error})
-            .then((html) => {
+            this.templateService.GetTemplate(this.templateConstants.ERROR_TEMPLATE, { title: title, message: error })
+                .then((html: string) => {
                 this.uibModal.open({
                     animation: true,
                     template: html,
@@ -32,8 +32,8 @@ module MobileWrapper.Services{
         }
 
         public Info(title: string, message: string, confirm: string, onConfirm: any, canCancel: boolean = true){
-            this.templateService.GetTemplate(this.templateConstants.INFO_TEMPLATE, {title: title, message: message, confirm: confirm})
-            .then((html) => {
+            this.templateService.GetTemplate(this.templateConstants.INFO_TEMPLATE, { title: title, message: message, confirm: confirm })
+                .then((html: string) => {
                 var modal = this.uibModal.open({
                     animation: true,
                     template: html,

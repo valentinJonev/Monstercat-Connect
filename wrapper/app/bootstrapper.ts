@@ -2,9 +2,34 @@
 var httpd = null;
 var serverUrl = null;
 
+
 var CordovaInit = function() {
 
 	var onDeviceReady = function() {
+		ons.ready(function(){
+			ons.disableDeviceBackButtonHandler();
+		})
+		cordova.plugins.backgroundMode.enable();
+		cordova.plugins.backgroundMode.setDefaults({
+			title: 'Monstercat Connect',
+			text: '',
+			resume: Boolean,
+			hidden: 'true',
+			silent: true
+		})
+		document.addEventListener("backbutton", function(e){
+			if(window.location.hash=='#!/'){
+				e.preventDefault();
+				ons.notification.confirm('Are you sure you want to exit?').then((answer) => {
+					if(answer){
+						navigator.app.exitApp();
+					}
+				})
+			}
+			else {
+				navigator.app.backHistory()
+			}
+		 }, false);
 		httpd = ( cordova && cordova.plugins && cordova.plugins.CorHttpd ) ? cordova.plugins.CorHttpd : null;
 		httpd.startServer({
 			'www_root' : '',
@@ -34,12 +59,11 @@ var CordovaInit = function() {
 							reg.addEventListener('updatefound', function() {
 								_trackInstalling(reg.installing);
 							});
-							console.log('Service Worker registered');
-						}).catch(function(err) {
+                            console.log('Service Worker registered');
+                        }).then(() => {receivedEvent();}).catch(function(err) {
 							console.log('Service Worker registration failed: ', err);
 						});
 					}
-					receivedEvent();
     			} else {
     				console.log('failed to start server: ' + error);
 					receivedEvent();
@@ -47,6 +71,14 @@ var CordovaInit = function() {
     		});
 		});
 	};
+
+	function handleBackButton(e) {
+		e.stopImmediatePropagation();
+		e.preventDefault();
+		console.log("back clicked");
+		window.history.back();
+		return false;
+	}
 
 	var receivedEvent = function() {
 		console.log('Start event received, bootstrapping application setup.');
@@ -94,5 +126,5 @@ function _trackInstalling(worker) {
 
 function _updateReady(worker) {
 	worker.postMessage({action: 'skipWaiting'});
-	console.log('Service worker updated!');
+    console.log('Service worker updated!');
 };

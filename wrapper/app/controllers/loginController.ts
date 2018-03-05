@@ -29,6 +29,7 @@ module MobileWrapper.Controllers {
             this.commonConstants = commonConstants;
             this.state = $state;
             this.commonService.SetMenuVisibility(false);
+            this.commonService.SetToolbarText('Login');
             this.Setup();
 
             $('.icon').hover(function () {
@@ -46,26 +47,31 @@ module MobileWrapper.Controllers {
             else{
                 this.scope.pageName = 'Login'
             }
-        }
-
-        public back(){
-            this.commonService.NavigateToPage('loading', this.state, this.scope);
+            navigator.splashscreen.hide();
         }
 
         public Login(){
-            this.authService.Login(this.scope.username, this.scope.password)
-            .then((success) => {
-                this.commonService.ReloadMenu();
-                this.commonService.NavigateToPage('home', this.state, this.scope);
-            }, (error) => {
-                if(error){
-                    $('.login-form-main-message').addClass('show');
-                    $('.login-form-main-message').addClass('error');
-                    $('.login-button').addClass('error');
-                    this.scope.errorMessage = error;
-                    console.log(error);
-                }
-            })
+            if(this.scope.username && this.scope.password){
+                this.authService.Login(this.scope.username, this.scope.password)
+                .then((success) => {
+                    this.commonService.ReloadMenu();
+                    this.commonService.NavigateToPage('home', this.state, this.scope);
+                }, (error) => {
+                    if(error){
+                        $('.login-form-main-message').addClass('show');
+                        $('.login-form-main-message').addClass('error');
+                        $('.login-button').addClass('error');
+                        this.scope.errorMessage = error;
+                        console.log(error);
+                    }
+                })
+            }
+            else{
+                $('.login-form-main-message').addClass('show');
+                $('.login-form-main-message').addClass('error');
+                $('.login-button').addClass('error');
+                this.scope.errorMessage = "Both email and password are required";
+            }
         }
     }
 }

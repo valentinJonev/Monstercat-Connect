@@ -1,0 +1,9 @@
+<div class="audio-player minimized">
+    <div class="player-controlls">
+            <p>{{message}}</p>
+            <i class="ion-skip-backward" ng-click="Previous()"></i>
+            <i class="ion-{{playing ? 'pause' : 'play'}}" ng-click="PlayStop()"></i>
+            <i class="ion-skip-forward" ng-click="Next()"></i>
+    </div>
+    <canvas id="equalizer"></canvas>
+</div>

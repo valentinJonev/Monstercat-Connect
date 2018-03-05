@@ -1,1 +1,7 @@
-artists
+<p class="loading-more">Loading...</p>
+<div class="artists" ng-controller="artistsController as artists">
+    <div class="artist" ng-repeat="artist in artists.scope.artistsList" ng-click="artists.ViewArtist(artist.VanityUri)">
+        <img src="{{artist.ProfilePicture}}?image_width=128" />
+        <label>{{artist.Name}}</label>
+    </div>
+</div>

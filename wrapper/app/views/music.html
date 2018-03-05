@@ -1,1 +1,8 @@
-music
+<p class="loading-more">Loading...</p>
+<div class="releases" ng-controller="musicController as music">
+    <div class="release" ng-repeat="release in music.scope.releases" ng-click="music.ViewAlbum(release.Id)">
+        <img src="{{release.CoverUrl}}?image_width=128" />
+        <label>{{release.Name}}</label>
+        <label>{{release.Artists}}</label>
+    </div>
+</div>

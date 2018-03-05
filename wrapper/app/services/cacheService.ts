@@ -1,5 +1,6 @@
 module MobileWrapper.Services {
     'use strict'
+    let persistence: any = (<any>window).persistence;
 
     export class CacheService { 
         private q: ng.IQService;

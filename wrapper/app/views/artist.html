@@ -1,0 +1,15 @@
+<div ng-controller="artistController as artist" class="artistInfo">
+    <img class="artistProfilePicture" src="{{artist.scope.artistProfilePicture}}?image_width=512"/>
+    <div class="buttons">
+        <div class="social-button" ng-repeat="button in artist.scope.artistUrls">
+            <a href="{{button.original}}" class="social-icon"> <i class="fa fa-{{button.platform}}"></i></a>
+        </div>
+    </div>
+    <div class="releases">
+        <div class="release" ng-repeat="release in artist.scope.releases" ng-click="artist.ViewRelease(release.Id)">
+            <img src="{{release.CoverUrl}}?image_width=128" />
+            <label>{{release.Name}}</label>
+            <label>{{release.Artists}}</label>
+        </div>
+    </div>
+</div>

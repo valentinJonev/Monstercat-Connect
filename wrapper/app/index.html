@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src * data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, target-densityDpi=device-dpi">
         <!-- inject:css --><!-- endinject -->
         <!-- bower:js --><!-- endinject -->
         <script type="text/javascript" src="cordova.js"></script>
@@ -14,24 +15,40 @@
     </head>
     <body ng-controller="indexController as index">
         <ons-splitter var="mySplitter" ng-controller="indexController as index">
-            <ons-splitter-side side="left" width="220px" collapse="">
+            <ons-splitter-side class="menu-slide" side="left" width="220px" collapse="">
                 <ons-page class="menu">
                     <div class="menu-scroll" dynamic="menu"></div>
                 </ons-page>
             </ons-splitter-side>
+            <ons-splitter-side class="player-side" side="right" width="100%" swipeable collapse="">
+                <ons-page class="player">
+                    <audio-player state="maximized" song-id="index.scope.songId" song-cover="index.scope.songImage"></audio-player>
+                </ons-page>
+            </ons-splitter-side>
             <ons-splitter-content>
                 <ons-page>
-                    <ons-toolbar>
-                        <div class="left">
-                            <ons-toolbar-button class="menuButton" ng-click="mySplitter.left.open()">
-                                <ons-icon icon="md-menu"></ons-icon>
-                            </ons-toolbar-button>
+                    <div class="progress-bar-holder-top">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <div class="toolbar">
+                        <div class="toolbar__left">
+                            <span class="toolbar-button" ng-click="mySplitter.left.open()">
+                                <i class="ion-navicon"></i>
+                            </span>
                         </div>
-                        <div class="center" ng-bind="index.scope.appName"></div>
-                    </ons-toolbar>
+                        <div class="toolbar__center toolbar-text">
+                            <p></p>
+                        </div>
+                        <div class="toolbar__right">
+                            <span class="toolbar-button" ng-click="">
+                                <i class="ion-search"></i>
+                            </span>
+                        </div>
+                    </div>
                 
                     <div class="wrapper">
                         <ui-view></ui-view>
+                        <audio-player state="minimized" song-id="index.scope.songId" song-cover="index.scope.songImage"></audio-player>
                     </div>
                 </ons-page>
             </ons-splitter-content>

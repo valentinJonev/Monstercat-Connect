@@ -1,20 +1,22 @@
 module MobileWrapper {
     'use strict'
 
-    var wrapper: ng.IModule = angular.module('mobile-wrapper', ['ui.router', 'ngCordova', 'angular-loading-bar', 'ngAnimate', 'ui.bootstrap', 'onsen', 'ui-notification']);
+    var wrapper: ng.IModule = angular.module('mobile-wrapper', ['ui.router', 'ngCordova', 'angular-loading-bar', 'ngAnimate', 'ui.bootstrap', 'onsen', 'ui-notification', 'infinite-scroll']);
 
     wrapper.controller('indexController', MobileWrapper.Controllers.IndexController);
     wrapper.controller('loginController', MobileWrapper.Controllers.LoginController);
     wrapper.controller('homeController', MobileWrapper.Controllers.HomeController);
-    wrapper.controller('widgetController', MobileWrapper.Controllers.WidgetController);
-    wrapper.controller('mainController', MobileWrapper.Controllers.MainController);
     wrapper.controller('errorController', MobileWrapper.Controllers.ErrorController);
     wrapper.controller('infoController', MobileWrapper.Controllers.InfoController);
     wrapper.controller('settingsController', MobileWrapper.Controllers.SettingsController);
-    wrapper.controller('pageController', MobileWrapper.Controllers.PageController);
-    wrapper.controller('loadingController', MobileWrapper.Controllers.LoadingController);
+    wrapper.controller('musicController', MobileWrapper.Controllers.MusicController);
+    wrapper.controller('albumController', MobileWrapper.Controllers.AlbumController);
+    wrapper.controller('artistsController', MobileWrapper.Controllers.ArtistsController);
+    wrapper.controller('artistController', MobileWrapper.Controllers.ArtistController);
+    wrapper.controller('featuredController', MobileWrapper.Controllers.FeaturedController);
 
     wrapper.directive('dynamic', MobileWrapper.Directives.DynamicHtml.Factory())
+    wrapper.directive('audioPlayer', MobileWrapper.Directives.AudioPlayer.Factory())
 
     wrapper.service('httpService', MobileWrapper.Services.HttpService);
     wrapper.service('cacheService', MobileWrapper.Services.CacheService);
@@ -23,8 +25,8 @@ module MobileWrapper {
     wrapper.service('authService', MobileWrapper.Services.AuthService);
     wrapper.service('modalService', MobileWrapper.Services.ModalService);
     wrapper.service('updateService', MobileWrapper.Services.UpdateService);
-    wrapper.service('widgetService', MobileWrapper.Services.WidgetService);
-    wrapper.service('menuService', MobileWrapper.Services.MenuService);
+    wrapper.service('monstercatService', MobileWrapper.Services.MonstercatService);
+    wrapper.service('audioService', MobileWrapper.Services.AudioService);
 
     wrapper.config(MobileWrapper.Config.RouteConfig);
 
